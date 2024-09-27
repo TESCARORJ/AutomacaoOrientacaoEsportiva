@@ -8,7 +8,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        string googleMapsApiKey = "AIzaSyBZsWF92wMD5CEKgF7jD9XkwYudgbU0DrU";
+        string googleMapsApiKey = "googleMapsApiKey";
         string searchQuery = "personal trainers são paulo";
         string googleMapsApiUrl = $"https://maps.googleapis.com/maps/api/place/textsearch/json?query={searchQuery}&key={googleMapsApiKey}";
 
