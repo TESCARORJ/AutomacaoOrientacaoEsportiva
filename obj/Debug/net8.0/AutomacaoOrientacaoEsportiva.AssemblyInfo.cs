@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutomacaoOrientacaoEsportiva")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+003bf29a54bc4ed8e646c513d84510fd9eb40dc3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3554d723f0df68148ba5feb59181041e3036ba61")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutomacaoOrientacaoEsportiva")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutomacaoOrientacaoEsportiva")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
