@@ -32,7 +32,7 @@ class Program
     static async Task Main(string[] args)
     {
         string googleMapsApiKey = "AIzaSyBZsWF92wMD5CEKgF7jD9XkwYudgbU0DrU";
-        string searchQuery = "personal trainers são paulo";
+        string searchQuery = "personal trainers rio de janeiro";
         string googleMapsApiUrl = $"https://maps.googleapis.com/maps/api/place/textsearch/json?query={searchQuery}&key={googleMapsApiKey}";
 
         using (HttpClient client = new HttpClient())
@@ -54,6 +54,12 @@ class Program
 
                 var resultDetails = detailsJson["result"];
                 string name = resultDetails["name"].ToString();
+
+                if (name.Length > 55)
+                {
+                    name = name.Substring(0, 55);
+                }
+
                 string nameEmail = RemoverAcentos(name); // Remover acentos ortográficos
                 string[] nameParts = name.Split(' ');
 
@@ -63,7 +69,9 @@ class Program
 
                 string address = resultDetails["formatted_address"].ToString();
                 string phoneNumber = resultDetails["formatted_phone_number"] == null ? "" : resultDetails["formatted_phone_number"].ToString();
-                string email = string.Join(".", nameEmail.Split(' ').Select(word => word[0])) + "@orientacaoesportiva.com";
+                string email = string.Join(".", nameEmail.Split(' ')
+                    .Select(word => new string(word.Where(c => char.IsLetterOrDigit(c) || c == '.' || c == '-' || c == '_').ToArray()).FirstOrDefault()))
+                    + "@orientacaoesportiva.com";
 
                 // Formatar o número de telefone para o formato do WhatsApp
                 string formattedPhoneNumber = "55" + phoneNumber.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "");
@@ -89,6 +97,8 @@ class Program
                 driver.FindElement(By.CssSelector("input[name='register']")).Click();
                 await Task.Delay(5000);
 
+      
+
                 // Atualizar Perfil
                 driver.FindElement(By.CssSelector("div.user-menu")).Click();
                 await Task.Delay(2000);
@@ -96,7 +106,12 @@ class Program
                 await Task.Delay(2000);
                 driver.FindElement(By.Id("phone")).SendKeys(phoneNumber);
                 await Task.Delay(2000);
-                driver.FindElement(By.Id("whatsapp")).SendKeys(formattedPhoneNumber);
+
+                if (!string.IsNullOrEmpty(phoneNumber) || phoneNumber != "")
+                {
+                    driver.FindElement(By.Id("whatsapp")).SendKeys(formattedPhoneNumber);
+                }
+
                 await Task.Delay(2000);
                 driver.FindElement(By.CssSelector("button[form='edit_user'][type='submit']")).Click();
                 await Task.Delay(5000);
@@ -110,14 +125,17 @@ class Program
                 await Task.Delay(5000);
 
                 // Preencher o formulário de anúncio
-                driver.FindElement(By.Id("_address")).SendKeys(address + Keys.Enter);
+                var addressField = driver.FindElement(By.Id("_address"));
+                addressField.SendKeys(address);
+                await Task.Delay(500); // Pequeno atraso para garantir que o valor foi inserido
+                addressField.SendKeys(Keys.Enter);
 
                 // Aguarda um curto período para garantir que o endereço foi inserido
                 await Task.Delay(2000);
 
                 // Localiza e clica no ícone de marcador de mapa
-                driver.FindElement(By.CssSelector("#_address_wrapper a i.fa-map-marker")).Click();
-                await Task.Delay(2000);
+                //driver.FindElement(By.CssSelector("#_address_wrapper a i.fa-map-marker")).Click();
+                //await Task.Delay(2000);
 
 
                 await Task.Delay(2000);
