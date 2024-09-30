@@ -1,15 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "uwoOzfz8gBo=",
+  "dgSpecHash": "xR7olg1buXY=",
   "success": true,
   "projectFilePath": "C:\\Users\\thiago.ntl\\Documents\\PESSOAL\\GT\\Automação\\AutomacaoOrientacaoEsportiva\\AutomacaoOrientacaoEsportiva.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiago.ntl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\thiago.ntl\\.nuget\\packages\\openqa.selenium.chrome.chromedriverextensions\\1.2.0\\openqa.selenium.chrome.chromedriverextensions.1.2.0.nupkg.sha512",
     "C:\\Users\\thiago.ntl\\.nuget\\packages\\openqa.selenium.winium\\1.0.0.4\\openqa.selenium.winium.1.0.0.4.nupkg.sha512",
-    "C:\\Users\\thiago.ntl\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512"
+    "C:\\Users\\thiago.ntl\\.nuget\\packages\\selenium.support\\4.25.0\\selenium.support.4.25.0.nupkg.sha512",
+    "C:\\Users\\thiago.ntl\\.nuget\\packages\\selenium.webdriver\\4.25.0\\selenium.webdriver.4.25.0.nupkg.sha512",
+    "C:\\Users\\thiago.ntl\\.nuget\\packages\\seleniumextras.waithelpers\\1.0.2\\seleniumextras.waithelpers.1.0.2.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Versão detectada do pacote fora da restrição de dependência: OpenQA.Selenium.Winium 1.0.0.4 requer Selenium.WebDriver (= 3.141.0), mas a versão Selenium.WebDriver 4.25.0 foi resolvida.",
+      "libraryId": "Selenium.WebDriver",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

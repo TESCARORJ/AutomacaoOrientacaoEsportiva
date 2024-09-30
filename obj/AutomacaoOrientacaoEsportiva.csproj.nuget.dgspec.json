@@ -61,6 +61,18 @@
             "OpenQA.Selenium.Winium": {
               "target": "Package",
               "version": "[1.0.0.4, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.25.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.25.0, )"
+            },
+            "SeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             }
           },
           "imports": [
